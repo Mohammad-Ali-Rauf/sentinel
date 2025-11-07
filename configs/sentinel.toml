@@ -1,0 +1,15 @@
+mode = "dev"
+
+[allow]
+domains = ["github.com", "docker.io"]
+ports = [22, 80, 443, 3000]
+
+[deny]
+ports = [23, 3389]
+
+[thresholds]
+max_connections_per_minute = 100
+alert_on_new_listener = true
+scan_interval_seconds = 30
+alert_threshold = 5
+auto_block = false
