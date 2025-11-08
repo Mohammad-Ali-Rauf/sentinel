@@ -1,15 +1,15 @@
 mode = "dev"
 
 [allow]
-domains = ["github.com", "docker.io"]
-ports = [22, 80, 443, 3000]
+domains = ["github.com", "docker.io"]  # strict mode will override this to empty
+ports = [22, 80, 443, 3000, 8080]     # strict mode will reduce to [22, 80, 443]
 
 [deny]
-ports = [23, 3389]
+ports = [23, 3389]  # strict mode will add more ports
 
 [thresholds]
 max_connections_per_minute = 100
 alert_on_new_listener = true
 scan_interval_seconds = 30
 alert_threshold = 5
-auto_block = false
+auto_block = false  # strict mode will set this to TRUE
